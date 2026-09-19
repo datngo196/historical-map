@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-// Khắc phục lỗi không hiển thị icon mặc định của thư viện Leaflet trong React
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
@@ -15,10 +14,10 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// Xác định tọa độ ranh giới tối đa của toàn thế giới
+// Giới hạn không gian: Vẫn giữ nguyên để khóa người dùng không kéo đi xa
 const bounds = [
-  [-90, -180], // Điểm tận cùng Tây Nam
-  [90, 180]    // Điểm tận cùng Đông Bắc
+  [-90, -180], 
+  [90, 180]    
 ];
 
 const MapComponent = ({ events, center, zoom }) => {
@@ -26,15 +25,15 @@ const MapComponent = ({ events, center, zoom }) => {
     <MapContainer 
       center={center} 
       zoom={zoom} 
-      minZoom={2} // Chặn thu nhỏ quá mức để không lộ mảng xám
-      maxBounds={bounds} // Khóa khung hình, không cho kéo ra ngoài giới hạn trái đất
-      maxBoundsViscosity={1.0} // Tạo lực cản cứng như bức tường khi kéo đến viền
+      minZoom={3} // ĐÃ SỬA: Tăng từ 2 lên 3 để bản đồ lấp đầy màn hình laptop tốt hơn
+      maxBounds={bounds} // Vẫn khóa khung hình cứng ngắc
+      maxBoundsViscosity={1.0} 
       style={{ height: '100%', width: '100%', borderRadius: '8px' }}
     >
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
         attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
-        noWrap={true} // Tắt tính năng lặp lại bản đồ thành nhiều vòng tròn
+        // ĐÃ XÓA: noWrap={true} để khử 2 dải màu xám báo lỗi
       />
       {events.map((event) => (
         <Marker key={event.id} position={event.coordinates}>
