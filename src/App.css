@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  overflow: hidden; /* Ngăn chặn thanh cuộn xuất hiện khi thuyết trình */
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.tabs button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #0056b3;
+  background-color: white;
+  color: #0056b3;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabs button:hover {
+  background-color: #e6f0ff;
+}
+
+.tabs button.active {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Phần khung bản đồ sẽ tự động chiếm toàn bộ diện tích còn trống */
+.map-container {
+  flex-grow: 1;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Lớp lõi của Leaflet phải lấp đầy khung chứa */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
