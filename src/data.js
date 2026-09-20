@@ -214,7 +214,7 @@ export const historicalData = {
       id: "w_thangmuoinga",
       title: "Cách mạng Tháng Mười Nga thành công",
       time: "Năm 1917",
-      coordinates: [55.7558, 37.6173],
+      coordinates: [58.7558, 39.6173],
       description: "Thắng lợi đầu tiên của chủ nghĩa Mác - Lênin ở một nước lớn (rộng một phần sáu thế giới). Cuộc cách mạng đã đánh đổ triệt để giai cấp tư sản và địa chủ phong kiến, thiết lập xã hội mới – xã hội xã hội chủ nghĩa.",
       analysis: "Đây là sự kiện chấn động, mở ra thời đại quá độ từ chủ nghĩa tư bản lên chủ nghĩa xã hội trên toàn thế giới, chỉ ra con đường giải phóng cho các dân tộc bị áp bức và tác động mạnh mẽ đến Nguyễn Ái Quốc.",
       images: [
