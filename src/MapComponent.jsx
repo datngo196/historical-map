@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -14,46 +14,30 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// Giới hạn không gian: Vẫn giữ nguyên để khóa người dùng không kéo đi xa
-const bounds = [
-  [-90, -180], 
-  [90, 180]    
-];
-
-const MapComponent = ({ events, center, zoom }) => {
+const MapComponent = ({ events, center, zoom, minZoom, maxBounds, onMarkerClick }) => {
   return (
     <MapContainer 
       center={center} 
       zoom={zoom} 
-      minZoom={3} // ĐÃ SỬA: Tăng từ 2 lên 3 để bản đồ lấp đầy màn hình laptop tốt hơn
-      maxBounds={bounds} // Vẫn khóa khung hình cứng ngắc
+      minZoom={minZoom} 
+      maxBounds={maxBounds} 
       maxBoundsViscosity={1.0} 
-      style={{ height: '100%', width: '100%', borderRadius: '8px' }}
+      style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
         attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
-        // ĐÃ XÓA: noWrap={true} để khử 2 dải màu xám báo lỗi
       />
       {events.map((event) => (
-        <Marker key={event.id} position={event.coordinates}>
-          <Popup>
-            <h3 style={{ margin: '0 0 8px 0', color: '#0056b3' }}>{event.title}</h3>
-            <p style={{ margin: '4px 0' }}><strong>Thời gian:</strong> {event.time}</p>
-            <p style={{ margin: '4px 0', lineHeight: '1.4' }}>{event.description}</p>
-            <p style={{ margin: '4px 0', fontStyle: 'italic', lineHeight: '1.4' }}>
-              <strong>Phân tích:</strong> {event.analysis}
-            </p>
-            {event.status && (
-              <p style={{ margin: '8px 0 0 0' }}>
-                <strong>Trạng thái: </strong> 
-                <span style={{ color: event.status === 'Thất bại' ? 'red' : 'green', fontWeight: 'bold' }}>
-                  {event.status}
-                </span>
-              </p>
-            )}
-          </Popup>
-        </Marker>
+        <Marker 
+          key={event.id} 
+          position={event.coordinates}
+          eventHandlers={{
+            click: () => {
+              onMarkerClick(event); // Gửi dữ liệu sự kiện lên App.jsx để hiển thị vào Sidebar
+            },
+          }}
+        />
       ))}
     </MapContainer>
   );
