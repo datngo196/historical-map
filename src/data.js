@@ -21,39 +21,54 @@ export const historicalData = {
       images: [
         "/images/vn_namky_1.jpg",
         "/images/vn_namky_2.jpg",
-        "/images/vn_namky_3.jpg"
+        "/images/vn_namky_3.jpg",
+        "/images/vn_namky_4.jpg"
       ]
     },
     {
-      id: "vn_canvuong_tieubieu",
-      title: "Các cuộc khởi nghĩa Ba Đình, Bãi Sậy, Hương Khê",
-      time: "Cuối thế kỷ XIX",
-      coordinates: [18.3375, 105.9042],
-      description: "Khi triều đình nhà Nguyễn lần lượt ký kết các hiệp ước đầu hàng, các phong trào khởi nghĩa dưới ngọn cờ 'Cần Vương' (giúp vua cứu nước) vẫn bùng nổ mạnh mẽ. Tiêu biểu ở miền Trung có khởi nghĩa của Trần Tấn, Đặng Như Mai, Phan Đình Phùng; ở miền Bắc có khởi nghĩa của Phạm Bành, Đinh Công Tráng (Ba Đình), Nguyễn Thiện Thuật (Bãi Sậy), Nguyễn Quang Bích, Hoàng Hoa Thám.",
-      analysis: "Dù quy tụ được đông đảo văn thân, sĩ phu và nông dân tham gia, sự thất bại của phong trào Cần Vương chứng tỏ giai cấp phong kiến và hệ tư tưởng của nó đã hoàn toàn suy tàn, bất lực trước nhiệm vụ bảo vệ độc lập dân tộc.",
-      status: "Thất bại",
-      images: [
-        "/images/vn_canvuong_1.jpg",
-        "/images/vn_canvuong_2.jpg",
-        "/images/vn_canvuong_3.jpg",
-        "/images/vn_canvuong_4.jpg"
-      ]
-    },
-    {
-      id: "vn_danchutusan",
-      title: "Các phong trào theo khuynh hướng dân chủ tư sản",
-      time: "Đầu thế kỷ XX",
-      coordinates: [21.0285, 105.8542],
-      description: "Chịu ảnh hưởng từ các cuộc vận động cải cách, cách mạng dân chủ tư sản ở Trung Quốc và tấm gương Duy Tân Nhật Bản, nhiều sĩ phu yêu nước có tinh thần cải cách đã phát động các phong trào mới. Điển hình là Phong trào Đông Du do Phan Bội Châu khởi xướng (1905-1909), Phong trào Duy Tân do Phan Châu Trinh phát động (1906-1908), và Phong trào Đông Kinh Nghĩa Thục do Lương Văn Can, Nguyễn Quyền phát động (3/1907-11/1907).",
-      analysis: "Các phong trào này đều thất bại. Nguyên nhân sâu xa là do giai cấp tư sản Việt Nam còn non yếu, nguyên nhân trực tiếp là những người lãnh đạo chưa có đường lối và phương pháp cách mạng đúng đắn.",
-      status: "Thất bại",
-      images: [
-        "/images/vn_danchutusan_1.jpg",
-        "/images/vn_danchutusan_2.jpg",
-        "/images/vn_danchutusan_3.jpg"
-      ]
-    },
-    {
+    id: "vn_khoinghiabadinh",
+    title: "Khởi nghĩa Ba Đình",
+    time: "1886 - 1887",
+    coordinates: [19.9818, 105.9922],
+    description: "Một trong những cuộc khởi nghĩa tiêu biểu nhất của phong trào Cần Vương ở miền Bắc do Phạm Bành và Đinh Công Tráng lãnh đạo. Nghĩa quân đã dựa vào địa thế vùng chiêm trũng để xây dựng căn cứ phòng thủ kiên cố liên hoàn tại ba làng Mậu Thịnh, Thượng Thọ và Mỹ Khê (huyện Nga Sơn, tỉnh Thanh Hóa), chặn đánh các đoàn xe vận tải và kìm chân quân Pháp.",
+    analysis: "Khởi nghĩa thất bại do chiến thuật phòng ngự bị động, cố thủ trong căn cứ khép kín nên dễ bị cô lập khi thực dân Pháp tập trung hỏa lực mạnh để bao vây, triệt hạ. Sự thất bại này cùng với phong trào Cần Vương nói chung chứng tỏ giai cấp phong kiến và hệ tư tưởng của nó đã suy tàn, bất lực trước nhiệm vụ bảo vệ độc lập dân tộc.",
+    status: "Thất bại",
+    images: [
+      "/images/vn_badinh_1.jpg",
+      "/images/vn_badinh_2.jpg",
+      "/images/vn_badinh_3.jpg",
+      "/images/vn_badinh_4.jpg"
+    ]
+  },
+  {
+    id: "vn_khoinghiabaisay",
+    title: "Khởi nghĩa Bãi Sậy",
+    time: "1883 - 1892",
+    coordinates: [20.9419, 106.0594],
+    description: "Cuộc khởi nghĩa tiêu biểu dưới ngọn cờ Cần Vương ở vùng đồng bằng Bắc Bộ, do Nguyễn Thiện Thuật lãnh đạo. Khác với Ba Đình, nghĩa quân Bãi Sậy không xây dựng thành lũy kiên cố mà tận dụng địa hình đầm lầy, lau sậy rậm rạp ở Hưng Yên và các tỉnh lân cận để áp dụng linh hoạt chiến thuật du kích, thoắt ẩn thoắt hiện đánh tiêu hao sinh lực địch.",
+    analysis: "Dù chiến thuật du kích rất sáng tạo và gây nhiều khó khăn cho Pháp, khởi nghĩa vẫn thất bại do thiếu một đường lối lãnh đạo đúng đắn, vũ khí thô sơ và sự đàn áp, bao vây triệt để của kẻ thù. Điều này minh chứng cho sự bế tắc của hệ tư tưởng phong kiến thời bấy giờ.",
+    status: "Thất bại",
+    images: [
+      "/images/vn_baisay_1.jpg",
+      "/images/vn_baisay_2.jpg",
+      "/images/vn_baisay_3.jpg"
+    ]
+  },
+  {
+    id: "vn_khoinghiahhuongkhe",
+    title: "Khởi nghĩa Hương Khê",
+    time: "1885 - 1896",
+    coordinates: [18.1883, 105.6983],
+    description: "Đây là cuộc khởi nghĩa có quy mô lớn nhất, địa bàn rộng nhất (Thanh Hóa, Nghệ An, Hà Tĩnh, Quảng Bình), tổ chức chặt chẽ nhất và kéo dài nhất trong phong trào Cần Vương. Dưới sự lãnh đạo của Phan Đình Phùng và Cao Thắng, nghĩa quân được phiên chế quy củ và tự chế tạo được súng trường theo mẫu của Pháp.",
+    analysis: "Sự sụp đổ của khởi nghĩa Hương Khê cũng đánh dấu sự kết thúc của phong trào Cần Vương. Bất chấp sự quy tụ đông đảo văn thân, sĩ phu và nông dân, khởi nghĩa thất bại vì thiếu sự liên kết rộng khắp và bế tắc về đường lối cứu nước. Sự kiện này khẳng định hệ tư tưởng phong kiến đã hoàn toàn lỗi thời trước nhiệm vụ lịch sử.",
+    status: "Thất bại",
+    images: [
+      "/images/vn_huongkhe_1.jpg",
+      "/images/vn_huongkhe_2.jpg",
+      "/images/vn_huongkhe_3.jpg"
+    ]
+  },
+  {
       id: "vn_chongthue_trungky",
       title: "Phong trào chống đi phu, chống sưu thuế",
       time: "Năm 1908",
@@ -95,7 +110,49 @@ export const historicalData = {
         "/images/vn_congnhan_3.jpg",
         "/images/vn_congnhan_4.jpg"
       ]
-    }
+    },
+    {
+    id: "vn_dongdu",
+    title: "Phong trào Đông Du",
+    time: "1905 - 1909",
+    coordinates: [15.5725, 108.0264], 
+    description: "Do Phan Bội Châu khởi xướng, mục đích chính là vận động, tổ chức đưa thanh niên Việt Nam sang Nhật Bản học tập quân sự, khoa học kỹ thuật để chuẩn bị lực lượng đánh Pháp, giành độc lập. Phong trào lan rộng khắp cả nước và là một bước ngoặt trong tư tưởng cứu nước thời bấy giờ.",
+    analysis: "Phong trào thất bại do sự cấu kết giữa thực dân Pháp và đế quốc Nhật Bản (Nhật Bản trục xuất du học sinh Việt Nam). Nguyên nhân sâu xa là thiếu một cơ sở xã hội vững chắc trong nước và quá phụ thuộc vào viện trợ từ bên ngoài.",
+    status: "Thất bại",
+    images: [
+      "/images/vn_dongdu_1.jpg",
+      "/images/vn_dongdu_2.jpg",
+      "/images/vn_dongdu_3.jpg"
+    ]
+  },
+  {
+    id: "vn_duytan",
+    title: "Phong trào Duy Tân",
+    time: "1906 - 1908",
+    coordinates: [15.1205, 108.7923], 
+    description: "Do Phan Châu Trinh cùng một số sĩ phu tiến bộ phát động, chủ trương cứu nước bằng con đường cải cách với khẩu hiệu 'Chấn dân khí, khai dân trí, hậu dân sinh'. Phong trào tập trung vào việc mở trường học hiện đại, phát triển công thương nghiệp, cắt tóc ngắn, mặc áo ngắn, nổ ra mạnh mẽ nhất tại các tỉnh Trung Kỳ.",
+    analysis: "Thất bại do bị thực dân Pháp đàn áp đẫm máu sau khi phong trào chống đi phu, chống thuế bùng nổ ở Trung Kỳ năm 1908. Giai cấp tư sản Việt Nam lúc này còn quá non yếu, chưa đủ sức lãnh đạo một cuộc vận động chính trị - xã hội triệt để.",
+    status: "Thất bại",
+    images: [
+      "/images/vn_duytan_1.jpg",
+      "/images/vn_duytan_2.jpg",
+      "/images/vn_duytan_3.jpg"
+    ]
+  },
+  {
+    id: "vn_dongkinhnghiathuc",
+    title: "Phong trào Đông Kinh Nghĩa Thục",
+    time: "3/1907 - 11/1907",
+    coordinates: [21.0285, 105.8542], 
+    description: "Do Lương Văn Can, Nguyễn Quyền và các sĩ phu yêu nước phát động, với việc thành lập một trường học ở Hà Nội (bắt chước mô hình Khánh Ứng Nghĩa Thục ở Nhật Bản). Trường dạy chữ Quốc ngữ, truyền bá tư tưởng dân chủ tư sản, tổ chức diễn thuyết, xuất bản sách báo hô hào duy tân, phát triển kinh tế.",
+    analysis: "Thất bại do thực dân Pháp nhận thấy sự nguy hiểm của phong trào đối với chế độ cai trị nên đã ra lệnh đóng cửa trường, bắt bớ các nhà lãnh đạo và cấm lưu hành sách báo. Tuy thời gian hoạt động ngắn, phong trào đã thức tỉnh lòng yêu nước và truyền bá tư tưởng tiến bộ sâu rộng.",
+    status: "Thất bại",
+    images: [
+      "/images/vn_dongkinhnghiathuc_1.jpg",
+      "/images/vn_dongkinhnghiathuc_2.jpg",
+      "/images/vn_dongkinhnghiathuc_3.jpg"
+    ]
+  }
   ],
   worldEvents: [
     {
@@ -108,7 +165,8 @@ export const historicalData = {
       images: [
         "/images/w_thuocdia_1.jpg",
         "/images/w_thuocdia_2.jpg",
-        "/images/w_thuocdia_3.jpg"
+        "/images/w_thuocdia_3.jpg",
+        "/images/w_thuocdia_4.jpg"
       ]
     },
     {
@@ -120,7 +178,8 @@ export const historicalData = {
       analysis: "Sự kiện này đã tác động mạnh vào tâm lý của các sĩ phu yêu nước Việt Nam, truyền cảm hứng cho phong trào Đông Du học hỏi con đường tự cường của Nhật Bản.",
       images: [
         "/images/w_duytan_1.jpg",
-        "/images/w_duytan_2.jpg"
+        "/images/w_duytan_2.jpg",
+        "/images/w_duytan_3.jpg"
       ]
     },
     {
@@ -133,7 +192,8 @@ export const historicalData = {
       images: [
         "/images/w_cmtrungquoc_1.jpg",
         "/images/w_cmtrungquoc_2.jpg",
-        "/images/w_cmtrungquoc_3.jpg"
+        "/images/w_cmtrungquoc_3.jpg",
+        "/images/w_cmtrungquoc_4.jpg"
       ]
     },
     {
@@ -146,7 +206,8 @@ export const historicalData = {
       images: [
         "/images/w_ww1_1.jpg",
         "/images/w_ww1_2.jpg",
-        "/images/w_ww1_3.jpg"
+        "/images/w_ww1_3.jpg",
+        "/images/w_ww1_4.jpg"
       ]
     },
     {
@@ -172,8 +233,7 @@ export const historicalData = {
       analysis: "Chính nhờ Quốc tế Cộng sản, Hồ Chí Minh đã tiếp cận được 'Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa' của Lênin (1920), từ đó xác định con đường giải phóng dân tộc Việt Nam theo cách mạng vô sản.",
       images: [
         "/images/w_quoctecongsan_1.jpg",
-        "/images/w_quoctecongsan_2.jpg",
-        "/images/w_quoctecongsan_3.jpg"
+        "/images/w_quoctecongsan_2.jpg"
       ]
     }
   ]
