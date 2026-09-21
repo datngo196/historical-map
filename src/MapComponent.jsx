@@ -3,19 +3,19 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-// Hàm tạo icon động dựa trên trạng thái của sự kiện (thay thế cho icon mặc định)
+// Hàm tạo icon động
 const getCustomIcon = (status) => {
   let emoji = '📍';
   let customClass = 'custom-marker';
 
   if (status === 'Thất bại') {
-    emoji = '🔥'; // Ngọn lửa bùng cháy cho sự bế tắc/thất bại
+    emoji = '🔥'; 
     customClass += ' fire-icon';
   } else if (status === 'Lực lượng mới') {
-    emoji = '🚩'; // Cờ đỏ cho lực lượng mới vùng lên
+    emoji = '🚩'; 
     customClass += ' flag-icon';
   } else {
-    emoji = '🌍'; // Biểu tượng quả địa cầu cho các sự kiện thế giới
+    emoji = '🌍'; 
     customClass += ' world-icon';
   }
 
@@ -32,12 +32,11 @@ const MapComponent = ({ events, center, zoom, minZoom, maxBounds, onMarkerClick 
     <MapContainer 
       center={center} 
       zoom={zoom} 
-      minZoom={minZoom} 
+      minZoom={minZoom} // ĐÃ SỬA: Trả lại biến động để tab VN không bị zoom ra ngoài châu Á
       maxBounds={maxBounds} 
       maxBoundsViscosity={1.0} 
       style={{ height: '100%', width: '100%', backgroundColor: '#121212' }}
     >
-      {/* ĐÃ SỬA: Chuyển sang dùng bản đồ tối màu của Esri không yêu cầu API Key */}
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
         attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
@@ -48,8 +47,19 @@ const MapComponent = ({ events, center, zoom, minZoom, maxBounds, onMarkerClick 
           position={event.coordinates}
           icon={getCustomIcon(event.status)} 
           eventHandlers={{
-            click: () => {
+            click: (e) => {
               onMarkerClick(event); 
+              
+              // TÍNH NĂNG MỚI: Camera tự động bay tới và zoom cận cảnh vào sự kiện
+              const map = e.target._map;
+              const currentZoom = map.getZoom();
+              // Nếu đang ở xa thì zoom sát vào (mức 7), nếu đã ở gần thì giữ nguyên zoom
+              const targetZoom = currentZoom < 7 ? 7 : currentZoom; 
+              
+              map.flyTo(event.coordinates, targetZoom, {
+                duration: 1.2, // Tốc độ bay (tính bằng giây)
+                easeLinearity: 0.25
+              });
             },
           }}
         />
