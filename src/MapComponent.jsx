@@ -3,25 +3,26 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-// Hàm tạo icon động
+// Hàm tạo icon động đã được sửa lỗi dồn cục
 const getCustomIcon = (status) => {
   let emoji = '📍';
-  let customClass = 'custom-marker';
+  let innerClass = 'inner-icon'; // Khai báo class cho thẻ div con
 
   if (status === 'Thất bại') {
     emoji = '🔥'; 
-    customClass += ' fire-icon';
+    innerClass += ' fire-icon';
   } else if (status === 'Lực lượng mới') {
     emoji = '🚩'; 
-    customClass += ' flag-icon';
+    innerClass += ' flag-icon';
   } else {
     emoji = '🌍'; 
-    customClass += ' world-icon';
+    innerClass += ' world-icon';
   }
 
   return L.divIcon({
-    html: `<div>${emoji}</div>`,
-    className: customClass,
+    // Bọc hiệu ứng vào thẻ div con bên trong, nhường thẻ wrapper ngoài cùng cho Leaflet giữ tọa độ
+    html: `<div class="${innerClass}">${emoji}</div>`,
+    className: 'custom-marker', 
     iconSize: [30, 30],
     iconAnchor: [15, 15],
   });

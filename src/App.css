@@ -179,12 +179,21 @@ body, html {
 .custom-marker {
   background: transparent;
   border: none;
-  font-size: 26px; /* Kích thước icon */
-  text-align: center;
-  line-height: 1;
 }
 
-/* Hiệu ứng ngọn lửa bùng cháy cho sự kiện thất bại/chiến tranh */
+/* Thẻ div con sẽ chịu trách nhiệm hiển thị hiệu ứng mà không làm hỏng tọa độ */
+.inner-icon {
+  font-size: 26px;
+  text-align: center;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hiệu ứng ngọn lửa bùng cháy */
 .fire-icon {
   animation: pulse-fire 0.8s infinite alternate;
 }
@@ -193,7 +202,7 @@ body, html {
   100% { transform: scale(1.3); filter: drop-shadow(0px 0px 15px rgba(255, 100, 0, 1)); }
 }
 
-/* Hiệu ứng cờ bay cho sự kiện thành công/lực lượng mới */
+/* Hiệu ứng cờ bay */
 .flag-icon {
   filter: drop-shadow(0px 0px 8px gold);
   animation: wave-flag 1.5s infinite ease-in-out;
