@@ -3,16 +3,29 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+// Hàm tạo icon động dựa trên trạng thái của sự kiện (thay thế cho icon mặc định)
+const getCustomIcon = (status) => {
+  let emoji = '📍';
+  let customClass = 'custom-marker';
 
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41]
-});
-L.Marker.prototype.options.icon = DefaultIcon;
+  if (status === 'Thất bại') {
+    emoji = '🔥'; // Ngọn lửa bùng cháy cho sự bế tắc/thất bại
+    customClass += ' fire-icon';
+  } else if (status === 'Lực lượng mới') {
+    emoji = '🚩'; // Cờ đỏ cho lực lượng mới vùng lên
+    customClass += ' flag-icon';
+  } else {
+    emoji = '🌍'; // Biểu tượng quả địa cầu cho các sự kiện thế giới
+    customClass += ' world-icon';
+  }
+
+  return L.divIcon({
+    html: `<div>${emoji}</div>`,
+    className: customClass,
+    iconSize: [30, 30],
+    iconAnchor: [15, 15],
+  });
+};
 
 const MapComponent = ({ events, center, zoom, minZoom, maxBounds, onMarkerClick }) => {
   return (
@@ -22,19 +35,21 @@ const MapComponent = ({ events, center, zoom, minZoom, maxBounds, onMarkerClick 
       minZoom={minZoom} 
       maxBounds={maxBounds} 
       maxBoundsViscosity={1.0} 
-      style={{ height: '100%', width: '100%' }}
+      style={{ height: '100%', width: '100%', backgroundColor: '#000' }}
     >
+      {/* Đổi sang bản đồ CartoDB Dark Matter để tạo không khí u ám, lịch sử */}
       <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
-        attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
+        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
       />
       {events.map((event) => (
         <Marker 
           key={event.id} 
           position={event.coordinates}
+          icon={getCustomIcon(event.status)} // Gán icon động đã cấu hình
           eventHandlers={{
             click: () => {
-              onMarkerClick(event); // Gửi dữ liệu sự kiện lên App.jsx để hiển thị vào Sidebar
+              onMarkerClick(event); 
             },
           }}
         />
