@@ -72,18 +72,18 @@ function App() {
             </div>
           )}
         </aside>
-
         {/* Khung Bản đồ bên phải chiếm 2/3 */}
         <div className="map-container">
           {activeTab === 'vietnam' ? (
             <MapComponent 
-              key="map-vn" // Dùng key để ép React render lại bản đồ mới khi chuyển tab
+              key="map-vn" 
               events={historicalData.vietnamEvents} 
               center={[16.0470, 108.2062]} 
               zoom={6} 
-              minZoom={5} // Chặn zoom out quá xa
-              maxBounds={[[8.0, 102.0], [24.0, 110.0]]} // Khóa cứng giới hạn chỉ nằm trong khu vực Việt Nam
-              onMarkerClick={setSelectedEvent} // Truyền hàm để bắt sự kiện click marker
+              minZoom={5} 
+              maxBounds={[[8.0, 102.0], [24.0, 110.0]]} 
+              onMarkerClick={setSelectedEvent} 
+              selectedEvent={selectedEvent} /* DÒNG MỚI THÊM VÀO */
             />
           ) : (
             <MapComponent 
@@ -92,8 +92,9 @@ function App() {
               center={[25.0, 10.0]} 
               zoom={2} 
               minZoom={2.5}
-              maxBounds={[[-90, -180], [90, 180]]} // Ranh giới toàn thế giới
+              maxBounds={[[-90, -180], [90, 180]]} 
               onMarkerClick={setSelectedEvent}
+              selectedEvent={selectedEvent} /* DÒNG MỚI THÊM VÀO */
             />
           )}
         </div>
