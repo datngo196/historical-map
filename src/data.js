@@ -162,6 +162,7 @@ export const historicalData = {
       coordinates: [0.0, 20.0],
       description: "Chủ nghĩa tư bản chuyển sang giai đoạn đế quốc chủ nghĩa. Các nước như Anh, Pháp, Mỹ, Tây Ban Nha, Ý, Đức, Nga, Nhật Bản... đã chi phối toàn bộ thế giới. Phần lớn châu Á, châu Phi và khu vực Mỹ Latinh trở thành thuộc địa và phụ thuộc.",
       analysis: "Quá trình này làm phát triển gay gắt các mâu thuẫn: giữa tư sản và vô sản, giữa các nước đế quốc, và đặc biệt là mâu thuẫn giữa các dân tộc thuộc địa với chủ nghĩa đế quốc, thúc đẩy phong trào giải phóng dân tộc.",
+      status: "Chiến tranh",
       images: [
         "/images/w_thuocdia_1.jpg",
         "/images/w_thuocdia_2.jpg",
@@ -176,6 +177,7 @@ export const historicalData = {
       coordinates: [35.6762, 139.6503],
       description: "Nhật Bản tiến hành công cuộc Duy Tân, phát triển mạnh mẽ theo con đường tư bản chủ nghĩa, thoát khỏi nguy cơ trở thành thuộc địa và vươn lên thành một cường quốc.",
       analysis: "Sự kiện này đã tác động mạnh vào tâm lý của các sĩ phu yêu nước Việt Nam, truyền cảm hứng cho phong trào Đông Du học hỏi con đường tự cường của Nhật Bản.",
+      status: "Thành công",
       images: [
         "/images/w_duytan_1.jpg",
         "/images/w_duytan_2.jpg",
@@ -189,6 +191,7 @@ export const historicalData = {
       coordinates: [39.9042, 116.4074],
       description: "Các cuộc vận động cải cách và phong trào cách mạng dân chủ tư sản tại Trung Quốc nổ ra nhằm lật đổ chế độ phong kiến thối nát.",
       analysis: "Cùng với Nhật Bản, những tư tưởng dân chủ tư sản từ Trung Quốc đã dội vào Việt Nam, trở thành ngọn cờ tư tưởng cho các phong trào yêu nước đầu thế kỷ XX nhưng cuối cùng vẫn bế tắc.",
+      status: "Thất bại",
       images: [
         "/images/w_cmtrungquoc_1.jpg",
         "/images/w_cmtrungquoc_2.jpg",
@@ -203,6 +206,7 @@ export const historicalData = {
       coordinates: [48.8566, 2.3522],
       description: "Sự phân chia thuộc địa không đồng đều đã dẫn đến cuộc chiến tranh tàn khốc giữa các nước đế quốc. Nước Pháp tham chiến và tăng cường vơ vét sức người, sức của tại Đông Dương.",
       analysis: "Chiến tranh đã làm suy yếu hệ thống đế quốc và đẩy mâu thuẫn xã hội ở các nước thuộc địa như Việt Nam lên tột đỉnh, tạo cơ hội cho các cuộc cách mạng bùng nổ.",
+      status: "Chiến tranh",
       images: [
         "/images/w_ww1_1.jpg",
         "/images/w_ww1_2.jpg",
@@ -217,6 +221,7 @@ export const historicalData = {
       coordinates: [58.7558, 39.6173],
       description: "Thắng lợi đầu tiên của chủ nghĩa Mác - Lênin ở một nước lớn (rộng một phần sáu thế giới). Cuộc cách mạng đã đánh đổ triệt để giai cấp tư sản và địa chủ phong kiến, thiết lập xã hội mới – xã hội xã hội chủ nghĩa.",
       analysis: "Đây là sự kiện chấn động, mở ra thời đại quá độ từ chủ nghĩa tư bản lên chủ nghĩa xã hội trên toàn thế giới, chỉ ra con đường giải phóng cho các dân tộc bị áp bức và tác động mạnh mẽ đến Nguyễn Ái Quốc.",
+      status: "Thành công",
       images: [
         "/images/w_thangmuoinga_1.jpg",
         "/images/w_thangmuoinga_2.jpg",
@@ -231,6 +236,7 @@ export const historicalData = {
       coordinates: [55.7558, 37.6173],
       description: "Quốc tế Cộng sản ra đời ở Mátxcơva, trở thành Bộ tham mưu lãnh đạo phong trào cách mạng thế giới. Tổ chức này đẩy mạnh truyền bá chủ nghĩa Mác - Lênin và thúc đẩy sự ra đời của các đảng cộng sản ở nhiều nước.",
       analysis: "Chính nhờ Quốc tế Cộng sản, Hồ Chí Minh đã tiếp cận được 'Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa' của Lênin (1920), từ đó xác định con đường giải phóng dân tộc Việt Nam theo cách mạng vô sản.",
+      status: "Thành công",
       images: [
         "/images/w_quoctecongsan_1.jpg",
         "/images/w_quoctecongsan_2.jpg"
