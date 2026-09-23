@@ -4,49 +4,42 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './App.css';
 
-// Hàm tạo icon động đã được tinh chỉnh để kiểm tra trạng thái click
-// Sử dụng dấu đánh dấu giọt nước ngược
 const getCustomIcon = (event, selectedEvent) => {
-  // Kiểm tra xem sự kiện của marker này có trùng với sự kiện
-  // đang được click ở Sidebar không
-  const isSelected =
-    selectedEvent && selectedEvent.id === event.id;
+  const isSelected = selectedEvent && selectedEvent.id === event.id;
 
-  let pinColor = '#D32F2F'; // Màu đỏ mặc định cho icon chưa chọn
-
+  let pinColor = '#D32F2F';
   let pinContent = `
-    <div class="marker-dot"></div>
-  `;
+    <div class="pin-dot"></div>
+  `; // Đổi thành pin-dot cho khớp với App.css
 
   let selectedClass = '';
 
-  // Chỉ khi người dùng click vào, icon mới biến đổi theo kết quả
   if (isSelected) {
     selectedClass = 'selected-marker';
 
     if (event.status === 'Thất bại') {
-      pinColor = '#FF5252'; // Đỏ tươi hơn khi thất bại
+      pinColor = '#FF5252';
 
+      // Đổi class thành inner-icon và failed-icon để nhận hiệu ứng animation
       pinContent = `
-        <div class="marker-icon">🔥</div>
+        <div class="inner-icon failed-icon">🔥</div>
       `;
     } else if (event.status === 'Lực lượng mới') {
-      pinColor = '#1976D2'; // Xanh dương
+      pinColor = '#1976D2';
 
       pinContent = `
-        <div class="marker-icon">🚩</div>
+        <div class="inner-icon">🚩</div>
       `;
     } else {
-      pinColor = '#388E3C'; // Xanh lá mặc định cho thành công/khác
+      pinColor = '#388E3C';
 
       pinContent = `
-        <div class="marker-icon">🌍</div>
+        <div class="inner-icon">🌍</div>
       `;
     }
   }
 
   return L.divIcon({
-    // Tạo cấu trúc HTML giọt nước ngược với CSS
     html: `
       <div
         class="marker-pin ${selectedClass}"
@@ -55,15 +48,12 @@ const getCustomIcon = (event, selectedEvent) => {
         ${pinContent}
       </div>
     `,
-
     className: 'custom-marker',
-
-    iconSize: [36, 50], // Điều chỉnh kích thước
-    iconAnchor: [18, 50], // Điểm neo là đáy của giọt nước
+    iconSize: [36, 50],
+    iconAnchor: [18, 50],
   });
 };
 
-// Đã bổ sung biến selectedEvent vào tham số nhận vào của Component
 const MapComponent = ({
   events,
   center,
@@ -81,6 +71,7 @@ const MapComponent = ({
       maxBounds={maxBounds}
       style={{ height: '100%', width: '100%' }}
     >
+      {/* Đã trả lại Base Map nền tối để không bị lỗi xám bản đồ */}
       <TileLayer
         attribution='&copy; OpenStreetMap contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -97,7 +88,6 @@ const MapComponent = ({
 
               const map = e.target._map;
               const currentZoom = map.getZoom();
-
               const targetZoom = currentZoom < 7 ? 7 : currentZoom;
 
               map.flyTo(event.coordinates, targetZoom, {

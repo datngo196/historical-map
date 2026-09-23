@@ -187,18 +187,19 @@ body, html {
 .marker-pin {
   width: 36px;
   height: 36px;
-  border-radius: 50% 50% 50% 0; /* Tạo hình giọt nước */
+  border-radius: 50% 50% 50% 0; 
   position: absolute;
-  transform: rotate(-45deg); /* Xoay để tạo đỉnh nhọn hướng xuống */
+  transform: rotate(-45deg); 
   left: 50%;
   top: 50%;
-  margin: -36px 0 0 -18px; /* Căn chỉnh điểm nhọn đúng vị trí tọa độ */
+  margin: -36px 0 0 -18px; 
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   transition: background-color 0.3s ease;
+  background-color: var(--pin-color, #D32F2F); /* Dòng mới được bổ sung để nhận màu */
 }
 
 /* Chấm trắng mờ bên trong (ẩn đi khi được click) */
