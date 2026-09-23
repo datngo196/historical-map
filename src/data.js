@@ -1,12 +1,52 @@
 export const historicalData = {
   overviews: {
     vietnam: {
-      title: "Tổng quan bối cảnh Việt Nam đầu thế kỷ XX",
-      content: "Từ năm 1858, đế quốc Pháp tiến hành xâm lược Việt Nam, từng bước biến nước ta từ một nước phong kiến thành nước thuộc địa và phong kiến. Quá trình khai thác thuộc địa đã làm biến đổi cơ cấu xã hội, bên cạnh nông dân và địa chủ, đã xuất hiện các giai tầng mới như giai cấp công nhân, tư sản và tầng lớp tiểu tư sản. Từ đó, mâu thuẫn gay gắt nhất nổi lên là mâu thuẫn giữa toàn thể nhân dân Việt Nam với đế quốc Pháp. Cuối thế kỷ XIX - đầu thế kỷ XX, các phong trào yêu nước theo khuynh hướng phong kiến (Cần Vương) và dân chủ tư sản liên tiếp nổ ra nhưng đều đi đến thất bại. Sự bế tắc này phản ánh cuộc khủng hoảng sâu sắc về đường lối và giai cấp lãnh đạo, đặt ra một câu hỏi bức thiết từ thực tiễn: Cứu nước bằng con đường nào để có thể đi đến thắng lợi?."
+      title: "Bối cảnh thực tiễn Việt Nam cuối thế kỷ XIX - đầu thế kỷ XX",
+      content: `1. Sự biến đổi sâu sắc về kinh tế - xã hội dưới ách thống trị của thực dân Pháp
+• Từ năm 1858, đế quốc Pháp bắt đầu tiến hành xâm lược Việt Nam, triều đình nhà Nguyễn lần lượt ký kết các hiệp ước đầu hàng và từng bước trở thành tay sai.
+• Sau khi hoàn thành bình định quân sự, thực dân Pháp đẩy mạnh khai thác thuộc địa, từng bước biến nước ta từ một nước phong kiến thành nước thuộc địa và phong kiến.
+• Về kinh tế: Pháp vẫn duy trì nền kinh tế nông nghiệp lạc hậu với khoảng 95% dân số là nông dân.
+• Về xã hội và cơ cấu giai cấp: Giai cấp địa chủ cũ được bổ sung và củng cố thêm điền chủ người Pháp, nước ngoài; đồng thời xuất hiện các giai tầng mới là giai cấp công nhân, giai cấp tư sản và tầng lớp tiểu tư sản ở thành thị.
+• Từ sự biến đổi này, liền với mâu thuẫn cơ bản trong xã hội phong kiến (nông dân với địa chủ), đã xuất hiện các mâu thuẫn mới: mâu thuẫn giữa công nhân với tư sản, và đặc biệt là mâu thuẫn gay gắt giữa toàn thể nhân dân Việt Nam với đế quốc Pháp.
+
+2. Sự bế tắc của các phong trào yêu nước theo hệ tư tưởng cũ
+• Khuynh hướng phong kiến (Cuối thế kỷ XIX): Các phong trào chống Pháp nổ ra liên tục ở cả ba miền (khởi nghĩa Trương Định, Nguyễn Trung Trực; Trần Tấn, Đặng Như Mai, Phan Đình Phùng; Nguyễn Thiện Thuật, Hoàng Hoa Thám...) và phong trào "Cần Vương" đều chiến đấu rất anh dũng nhưng cuối cùng đều thất bại. Điều này chứng tỏ nhân dân ta rất yêu nước, song giai cấp phong kiến và hệ tư tưởng của nó đã suy tàn, hoàn toàn bất lực trước nhiệm vụ bảo vệ độc lập dân tộc.
+• Khuynh hướng dân chủ tư sản (Đầu thế kỷ XX): Dưới ảnh hưởng của các cuộc vận động cải cách trên thế giới, các phong trào tiêu biểu do sĩ phu yêu nước lãnh đạo (Đông Du, Duy Tân, Đông Kinh Nghĩa Thục, chống sưu thuế Trung Kỳ) và cuộc khởi nghĩa Yên Bái của Việt Nam Quốc dân đảng nổ ra nhưng đều chung kết cục thất bại. Nguyên nhân sâu xa là do giai cấp tư sản Việt Nam còn non yếu, và trực tiếp là do thiếu đường lối, phương pháp cách mạng đúng đắn.
+
+3. Sự ra đời của lực lượng cách mạng mới
+• Đầu thế kỷ XX (trước Chiến tranh thế giới thứ nhất), giai cấp công nhân Việt Nam chính thức phát triển trở thành một giai cấp.
+• Chịu ba tầng áp bức bóc lột (thực dân, tư bản, phong kiến), họ sớm vùng dậy đấu tranh, chuyển nhanh từ đấu tranh thô sơ (đốt lán trại, bỏ trốn) sang đình công, bãi công.
+• Hồ Chí Minh đánh giá đây là giai cấp "dũng cảm nhất, cách mạng nhất, luôn luôn gan góc đương đầu với bọn đế quốc thực dân".
+• Phong trào công nhân và phong trào yêu nước lúc bấy giờ đã trở thành điều kiện thuận lợi để chủ nghĩa Mác-Lênin xâm nhập, truyền bá vào Việt Nam.
+
+4. Yêu cầu bức thiết của lịch sử (Khủng hoảng đường lối cứu nước)
+• Mặc dù các phong trào cũ liên tiếp thất bại, tinh thần yêu nước vẫn sục sôi trong lòng nhân dân.
+• Sự biến đổi cấu trúc của xã hội thuộc địa đã làm nảy sinh những mâu thuẫn mới khốc liệt mà hệ tư tưởng phong kiến hay tư sản đều tỏ ra lỗi thời, không thể giải quyết được, dẫn đến cuộc khủng hoảng đường lối diễn ra sâu sắc.
+• Đồng thời, sự vùng lên của một giai cấp tiến bộ là giai cấp công nhân đòi hỏi bức thiết phải có một lý luận cách mạng khoa học, tiên tiến dẫn đường.
+• Từ bối cảnh thực tiễn bế tắc đó, lịch sử đặt ra một câu hỏi vô cùng cấp bách: Cứu nước bằng con đường nào để có thể đi đến thắng lợi? Yêu cầu này buộc những người yêu nước Việt Nam phải dứt khoát từ bỏ lối mòn, đi tìm một con đường giải phóng dân tộc hoàn toàn mới.`
     },
     world: {
-      title: "Tổng quan bối cảnh Thế giới đầu thế kỷ XX",
-      content: "Vào cuối thế kỷ XIX, đầu thế kỷ XX, chủ nghĩa tư bản thế giới chuyển từ tự do cạnh tranh sang giai đoạn đế quốc chủ nghĩa, chi phối toàn bộ tình hình thế giới. Các nước đế quốc đã chia lô, biến phần lớn châu Á, châu Phi và khu vực Mỹ Latinh thành thuộc địa, làm sâu sắc thêm mâu thuẫn giữa các dân tộc thuộc địa với chủ nghĩa đế quốc. Trong bối cảnh đó, Cách mạng Tháng Mười Nga (1917) thành công đã đánh đổ giai cấp tư sản, lập nên xã hội chủ nghĩa, mở ra thời đại quá độ lên chủ nghĩa xã hội trên phạm vi toàn thế giới. Tiếp đó, sự ra đời của Quốc tế Cộng sản (1919) đã trở thành Bộ tham mưu lãnh đạo phong trào cách mạng, thúc đẩy sự truyền bá chủ nghĩa Mác - Lênin và vạch ra con đường giải phóng thực sự cho các dân tộc bị áp bức."
+      title: "Bối cảnh thực tiễn thế giới cuối thế kỷ XIX - đầu thế kỷ XX",
+      content: `1. Sự chuyển biến của chủ nghĩa tư bản và sự thống trị toàn cầu
+• Vào cuối thế kỷ XIX, đầu thế kỷ XX, chủ nghĩa tư bản trên thế giới đã phát triển từ giai đoạn tự do cạnh tranh sang giai đoạn đế quốc chủ nghĩa.
+• Một số nước đế quốc như Anh, Pháp, Mỹ, Tây Ban Nha, Ý, Đức, Nga, Nhật Bản, Bỉ, Bồ Đào Nha, Hà Lan, v.v... đã chi phối toàn bộ tình hình thế giới.
+• Phần lớn các nước châu Á, châu Phi và khu vực Mỹ Latinh đã trở thành thuộc địa và phụ thuộc của các nước đế quốc.
+
+2. Sự phát triển gay gắt của các mâu thuẫn thời đại
+• Tình hình thế giới đã làm sâu sắc thêm mâu thuẫn vốn có trong lòng chủ nghĩa tư bản: mâu thuẫn giữa giai cấp tư sản với giai cấp vô sản ở các nước tư bản; mâu thuẫn giữa các nước đế quốc với nhau; mâu thuẫn giữa các dân tộc thuộc địa và phụ thuộc với chủ nghĩa đế quốc.
+• Sang đầu thế kỷ XX, những mâu thuẫn này ngày càng phát triển gay gắt.
+• Giành độc lập cho các dân tộc thuộc địa không chỉ là đòi hỏi của riêng họ, mà còn là mong muốn chung của giai cấp vô sản quốc tế, tình hình đó đã thúc đẩy phong trào giải phóng dân tộc trên thế giới phát triển.
+
+3. Thắng lợi của Cách mạng Tháng Mười Nga (1917) - Sự mở đầu của thời đại mới
+• Cách mạng Tháng Mười Nga thành công là thắng lợi đầu tiên của chủ nghĩa Mác - Lênin ở một nước lớn rộng một phần sáu thế giới.
+• Cuộc cách mạng này đã đánh đổ giai cấp tư sản và giai cấp địa chủ phong kiến, lập nên một xã hội mới – xã hội xã hội chủ nghĩa.
+• Thắng lợi của Cách mạng Tháng Mười Nga đã mở ra một thời đại mới trong lịch sử loài người – thời đại quá độ từ chủ nghĩa tư bản lên chủ nghĩa xã hội trên phạm vi toàn thế giới.
+• Thắng lợi này cũng mở ra con đường giải phóng cho các dân tộc bị áp bức trên thế giới.
+
+4. Sự ra đời của Quốc tế Cộng sản (1919) và ảnh hưởng đến Nguyễn Ái Quốc
+• Ngày 2-3-1919, Quốc tế Cộng sản ra đời ở Mátxcơva trở thành Bộ tham mưu, lãnh đạo phong trào cách mạng thế giới.
+• Dưới sự lãnh đạo của Lênin, Quốc tế Cộng sản đẩy mạnh việc truyền bá chủ nghĩa Mác - Lênin và kinh nghiệm Cách mạng Tháng Mười Nga ra khắp thế giới, thúc đẩy sự ra đời và hoạt động ngày càng mạnh mẽ của các đảng cộng sản ở nhiều nước.
+• Cách mạng Tháng Mười Nga thắng lợi, sự ra đời của nhà nước Xôviết, Quốc tế Cộng sản và thực tiễn xây dựng chủ nghĩa xã hội ở Liên Xô cùng với sự phát triển mạnh mẽ phong trào cộng sản, công nhân và phong trào giải phóng dân tộc trên thế giới ảnh hưởng sâu sắc tới Hồ Chí Minh trên hành trình đi ra thế giới tìm mục tiêu và con đường cứu nước.`
     }
   },
   vietnamEvents: [
