@@ -176,58 +176,92 @@ body, html {
 /* =========================================
    HIỆU ỨNG MARKER TRÊN BẢN ĐỒ
    ========================================= */
+/* =========================================
+   HIỆU ỨNG MARKER GIỌT NƯỚC (STYLE GOOGLE MAPS)
+   ========================================= */
 .custom-marker {
   background: transparent;
   border: none;
 }
 
-/* Thẻ div con sẽ chịu trách nhiệm hiển thị hiệu ứng mà không làm hỏng tọa độ */
+.marker-pin {
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 0; /* Tạo hình giọt nước */
+  position: absolute;
+  transform: rotate(-45deg); /* Xoay để tạo đỉnh nhọn hướng xuống */
+  left: 50%;
+  top: 50%;
+  margin: -36px 0 0 -18px; /* Căn chỉnh điểm nhọn đúng vị trí tọa độ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+/* Chấm trắng mờ bên trong (ẩn đi khi được click) */
+.marker-pin::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin: 10px 0 0 10px;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0; 
+}
+
+/* Kiểu cho chấm nhỏ mặc định khi chưa chọn */
+.marker-pin .pin-dot {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  transform: rotate(45deg); /* Bù trừ lại góc xoay -45deg của giọt nước */
+}
+
+/* Hiệu ứng khi marker được chọn */
+.marker-pin.selected-marker {
+  transform: rotate(-45deg) scale(1.2); /* Phóng to nhẹ khi click */
+  z-index: 1000 !important; /* Đưa marker đang chọn lên trên cùng */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.marker-pin.selected-marker::after {
+  opacity: 0;
+}
+
+/* Container chứa emoji bên trong khi được click */
 .inner-icon {
-  font-size: 26px;
-  text-align: center;
-  line-height: 1;
-  width: 100%;
-  height: 100%;
+  transform: rotate(45deg); /* Bù trừ lại góc xoay để icon/emoji đứng thẳng */
+  font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Hiệu ứng ngọn lửa bùng cháy */
-.fire-icon {
+.inner-icon.failed-icon {
   animation: pulse-fire 0.8s infinite alternate;
 }
 @keyframes pulse-fire {
-  0% { transform: scale(1); filter: drop-shadow(0px 0px 5px rgba(255, 0, 0, 0.6)); }
-  100% { transform: scale(1.3); filter: drop-shadow(0px 0px 15px rgba(255, 100, 0, 1)); }
+  0% { transform: rotate(45deg) scale(1); filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.5)); }
+  100% { transform: rotate(45deg) scale(1.2); filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 1)); }
 }
 
-/* Hiệu ứng cờ bay */
-.flag-icon {
-  filter: drop-shadow(0px 0px 8px gold);
+.inner-icon.flag-icon {
   animation: wave-flag 1.5s infinite ease-in-out;
-  transform-origin: bottom left;
 }
 @keyframes wave-flag {
-  0%, 100% { transform: rotate(0deg) scale(1.2); }
-  50% { transform: rotate(15deg) scale(1.2); }
+  0%, 100% { transform: rotate(45deg) scale(1); }
+  50% { transform: rotate(55deg) scale(1.1); }
 }
 
-/* Hiệu ứng nhịp đập cho sự kiện thế giới */
-.world-icon {
+.inner-icon.world-icon {
   animation: pulse-world 2s infinite ease-in-out;
 }
 @keyframes pulse-world {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0px 0px 5px rgba(100, 150, 255, 0.5)); }
-  50% { transform: scale(1.1); filter: drop-shadow(0px 0px 15px rgba(100, 150, 255, 1)); }
-}
-
-/* Hiệu ứng nhịp đập nhẹ cho các marker chưa được click */
-.default-icon {
-  animation: pulse-default 1.5s infinite alternate;
-  opacity: 0.9;
-}
-@keyframes pulse-default {
-  0% { transform: scale(1); filter: drop-shadow(0px 0px 2px rgba(255, 77, 77, 0.4)); }
-  100% { transform: scale(1.1); filter: drop-shadow(0px 0px 8px rgba(255, 77, 77, 0.8)); }
+  0%, 100% { transform: rotate(45deg) scale(1); }
+  50% { transform: rotate(45deg) scale(1.1); filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.8)); }
 }
