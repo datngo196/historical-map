@@ -2,7 +2,7 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import './MapComponent.css';
+import './App.css';
 
 // Hàm tạo icon động đã được tinh chỉnh để kiểm tra trạng thái click
 // Sử dụng dấu đánh dấu giọt nước ngược
