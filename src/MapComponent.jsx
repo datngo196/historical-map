@@ -4,17 +4,13 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 // Hàm tạo icon động đã được tinh chỉnh để kiểm tra trạng thái click
+// Hàm tạo icon động đã được tinh chỉnh để kiểm tra trạng thái click
+
 const getCustomIcon = (event, selectedEvent) => {
   // Kiểm tra xem sự kiện của marker này có trùng với sự kiện đang được click ở Sidebar không
   const isSelected = selectedEvent && selectedEvent.id === event.id;
-
-  const redPinSvg = `<svg width="30" height="42" viewBox="0 0 24 36">
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 7.63 11.23 23.36 11.6 23.86.2.26.5.41.83.41s.63-.15.82-.42C13.63 35.34 24 19.61 24 12c0-6.63-5.37-12-12-12zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="#ea4335" />
-      <circle cx="12" cy="12" r="4.5" fill="#a50e0e" />
-    </svg>`;
-    let iconContent = redPinSvg;
-    let innerClass = 'inner-icon default-icon';
-    let anchorY = 42; // Tọa độ mỏ neo trỏ đúng phần nhọn dưới cùng của ghim SVG vào vị trí tọa độ
+  let emoji = '📍'; // Mặc định tất cả đều là ghim màu đỏ
+  let innerClass = 'inner-icon default-icon';
 
   // Chỉ khi người dùng click vào, icon mới biến đổi theo kết quả
   if (isSelected) {
