@@ -267,3 +267,163 @@ body, html {
   0%, 100% { transform: rotate(45deg) scale(1); }
   50% { transform: rotate(45deg) scale(1.1); filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.8)); }
 }
+
+.audio-player-box {
+  margin: 10px 0 16px 0;
+}
+
+.audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #8b0000; /* Màu đỏ đô phong cách lịch sử */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.audio-btn:hover {
+  background-color: #a50000;
+  transform: translateY(-1px);
+}
+
+.audio-btn.playing {
+  background-color: #2e7d32; /* Đổi sang màu xanh khi đang phát */
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(46, 125, 50, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+}
+
+/* Tùy chỉnh popup leaflet chứa audio */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+}
+
+.leaflet-popup-content .audio-player-box {
+  margin: 6px 0 0 0;
+}
+
+.leaflet-popup-content .audio-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #eee;
+  font-size: 13px;
+  user-select: none;
+}
+
+.bgm-toggle-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #555;
+  background: #2a2a2a;
+  color: #ccc;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bgm-toggle-btn.active {
+  background: #2e7d32;
+  color: #fff;
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+/* Màn hình Welcome khởi động âm thanh */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-card {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 32px 28px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  color: #f1f1f1;
+}
+
+.welcome-card h1 {
+  font-size: 20px;
+  color: #ffcc00;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.welcome-subtitle {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.welcome-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 24px;
+}
+
+.start-btn {
+  background: #b22222;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.5);
+  transition: all 0.2s ease;
+}
+
+.start-btn:hover {
+  background: #d32f2f;
+  transform: scale(1.03);
+}

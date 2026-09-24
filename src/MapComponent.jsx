@@ -1,8 +1,9 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './App.css';
+import { AudioPlayer } from './AudioPlayer';
 
 const getCustomIcon = (event, selectedEvent) => {
   const isSelected = selectedEvent && selectedEvent.id === event.id;
@@ -10,7 +11,7 @@ const getCustomIcon = (event, selectedEvent) => {
   let pinColor = '#D32F2F';
   let pinContent = `
     <div class="pin-dot"></div>
-  `; // Đổi thành pin-dot cho khớp với App.css
+  `;
 
   let selectedClass = '';
 
@@ -19,20 +20,16 @@ const getCustomIcon = (event, selectedEvent) => {
 
     if (event.status === 'Thất bại') {
       pinColor = '#FF5252';
-
-      // Đổi class thành inner-icon và failed-icon để nhận hiệu ứng animation
       pinContent = `
         <div class="inner-icon failed-icon">🔥</div>
       `;
     } else if (event.status === 'Lực lượng mới') {
       pinColor = '#1976D2';
-
       pinContent = `
         <div class="inner-icon">🚩</div>
       `;
     } else {
       pinColor = '#388E3C';
-
       pinContent = `
         <div class="inner-icon">🌍</div>
       `;
@@ -51,6 +48,7 @@ const getCustomIcon = (event, selectedEvent) => {
     className: 'custom-marker',
     iconSize: [36, 50],
     iconAnchor: [18, 50],
+    popupAnchor: [0, -45], // Căn chỉnh popup hiển thị ngay trên đầu mũi ghim
   });
 };
 
@@ -71,7 +69,6 @@ const MapComponent = ({
       maxBounds={maxBounds}
       style={{ height: '100%', width: '100%' }}
     >
-      {/* Đã trả lại Base Map nền tối để không bị lỗi xám bản đồ */}
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
         attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
@@ -96,7 +93,27 @@ const MapComponent = ({
               });
             },
           }}
-        />
+        >
+          {/* Tooltip hiển thị tên sự kiện khi di chuột qua marker */}
+          <Tooltip direction="top" offset={[0, -48]} opacity={0.9}>
+            <strong>{event.title}</strong> ({event.time})
+          </Tooltip>
+
+          {/* Popup nhỏ mở ra khi nhấp vào marker, có thể nghe thuyết minh trực tiếp */}
+          <Popup className="map-custom-popup">
+            <div style={{ minWidth: '180px' }}>
+              <h4 style={{ margin: '0 0 4px 0', fontSize: '14px', color: '#111' }}>
+                {event.title}
+              </h4>
+              <p style={{ margin: '0 0 6px 0', fontSize: '12px', color: '#666' }}>
+                📅 {event.time}
+              </p>
+              
+              {/* Nút AudioPlayer tích hợp trực tiếp vào Popup */}
+              <AudioPlayer src={event.audio || `/audio/${event.id}.wav`} />
+            </div>
+          </Popup>
+        </Marker>
       ))}
     </MapContainer>
   );
