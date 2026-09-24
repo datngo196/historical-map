@@ -11,7 +11,7 @@ const BGM_TRACKS = {
 const BGM_VOLUMES = {
   overview_vn: 0.3,
   overview_world: 0.5, // Đã tăng âm lượng cho bài Overview World (mặc định cũ là 0.15)
-  event_vn: 0.3,
+  event_vn: 0.2,
   event_world: 0.3,
 };
 
