@@ -70,8 +70,9 @@ const MapComponent = ({
       style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
-        attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
+        // Bản đồ Esri National Geographic mang tông màu lịch sử, hoài niệm rất đẹp
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
+        attribution='Tiles &copy; National Geographic Society, Esri'
       />
 
       {events.map((event) => (

@@ -9,21 +9,19 @@ function App() {
   const [activeTab, setActiveTab] = useState('vietnam');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isAutoVoice, setIsAutoVoice] = useState(true);
-
-  // Trạng thái kiểm soát màn hình khởi đầu để kích hoạt âm thanh
   const [hasStarted, setHasStarted] = useState(false);
 
-  // Hook nhạc nền (chỉ cho phép phát sau khi người dùng bấm Bắt đầu)
+  // State quản lý phóng to ảnh khi click
+  const [previewImage, setPreviewImage] = useState(null);
+
   const { isMuted: isBgmMuted, toggleMute: toggleBgm, playInitialTrack } = useBackgroundMusic({
     activeTab,
     selectedEvent,
-    isEnabled: hasStarted, // Chưa bấm bắt đầu thì chưa bật
+    isEnabled: hasStarted,
   });
 
-  // Xử lý khi bấm nút "Khám phá lịch sử"
   const handleStartExperience = () => {
     setHasStarted(true);
-    // Kích hoạt ngay nhạc nền bài Overview VN
     if (playInitialTrack) {
       playInitialTrack();
     }
@@ -38,19 +36,32 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Màn hình Welcome / Bắt đầu trải nghiệm */}
+      {/* Màn hình Welcome */}
       {!hasStarted && (
         <div className="welcome-overlay">
           <div className="welcome-card">
             <h1>BẢN ĐỒ LỊCH SỬ VIỆT NAM VÀ THẾ GIỚI</h1>
-            <p className="welcome-subtitle">Cuối thế kỷ XIX - Đầu thế kỷ XX</p>
+            <p className="welcome-subtitle">Cuối thế kỷ XIX — Đầu thế kỷ XX</p>
             <p className="welcome-desc">
-              Trang web tích hợp thuyết minh tự động và nhạc nền sử thi không lời. 
-              Vui lòng nhấn nút bên dưới để bắt đầu trải nghiệm âm thanh.
+              Hành trình tái hiện bức tranh thời đại hào hùng và bi tráng qua tư liệu địa lý,
+              thuyết minh âm thanh tự động và những khúc tráng ca không lời.
             </p>
             <button className="start-btn" onClick={handleStartExperience}>
               ⚔️ Bắt đầu khám phá
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* POPUP PHÓNG TO ẢNH (LIGHTBOX) */}
+      {previewImage && (
+        <div className="image-modal-overlay" onClick={() => setPreviewImage(null)}>
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal-btn" onClick={() => setPreviewImage(null)}>
+              ✕
+            </button>
+            <img src={previewImage.src} alt={previewImage.title} />
+            <p className="image-modal-caption">{previewImage.title}</p>
           </div>
         </div>
       )}
@@ -61,13 +72,13 @@ function App() {
             className={activeTab === 'vietnam' ? 'active' : ''} 
             onClick={() => handleTabChange('vietnam')}
           >
-            🇻🇳 Sự kiện ở Việt Nam
+            🇻🇳 Bối cảnh Việt Nam
           </button>
           <button 
             className={activeTab === 'world' ? 'active' : ''} 
             onClick={() => handleTabChange('world')}
           >
-            🌍 Sự kiện trên Thế giới
+            🌍 Bối cảnh Thế giới
           </button>
         </nav>
 
@@ -96,7 +107,7 @@ function App() {
           {selectedEvent ? (
             <div className="event-detail">
               <button className="back-btn" onClick={() => setSelectedEvent(null)}>
-                ✖ Quay lại Tổng quan
+                ← Quay lại Tổng quan
               </button>
               <h2>{selectedEvent.title}</h2>
 
@@ -106,23 +117,35 @@ function App() {
               />
 
               <p><strong>Thời gian:</strong> {selectedEvent.time}</p>
-              <p><strong>Mô tả:</strong> {selectedEvent.description}</p>
-              <p><strong>Phân tích:</strong> {selectedEvent.analysis}</p>
+              <p><strong>Mô tả sự kiện:</strong> {selectedEvent.description}</p>
+              <p><strong>Phân tích ý nghĩa:</strong> {selectedEvent.analysis}</p>
               
               {selectedEvent.status && (
                 <p>
-                  <strong>Trạng thái: </strong> 
+                  <strong>Kết cục / Tính chất: </strong> 
                   <span className={`status ${selectedEvent.status === 'Thất bại' ? 'fail' : 'success'}`}>
                     {selectedEvent.status}
                   </span>
                 </p>
               )}
 
+              {/* Danh sách ảnh hiển thị Full-width & Click để phóng to */}
               {selectedEvent.images && selectedEvent.images.length > 0 && (
-                <div className="image-gallery">
-                  {selectedEvent.images.map((imgSrc, index) => (
-                    <img key={index} src={imgSrc} alt={`${selectedEvent.title} - ${index}`} />
-                  ))}
+                <div className="event-images-full">
+                  <h4 className="gallery-title">📷 Hình ảnh & Tư liệu lịch sử</h4>
+                  <div className="image-stack">
+                    {selectedEvent.images.map((imgSrc, index) => (
+                      <div 
+                        key={index} 
+                        className="full-image-wrapper"
+                        onClick={() => setPreviewImage({ src: imgSrc, title: `${selectedEvent.title} (Tư liệu ${index + 1})` })}
+                        title="Nhấp để phóng to"
+                      >
+                        <img src={imgSrc} alt={`${selectedEvent.title} - ảnh ${index + 1}`} />
+                        <span className="expand-hint">🔍 Nhấp để phóng to</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -130,15 +153,14 @@ function App() {
             <div className="overview">
               <h2>{currentOverview.title}</h2>
 
-              {/* Khi hasStarted = true, audio này sẽ tự động phát ngay */}
               <AudioPlayer 
                 src={currentOverview.audio || `/audio/overview_${activeTab}.wav`} 
                 autoPlay={isAutoVoice && hasStarted}
               />
 
-              <div style={{ whiteSpace: 'pre-line' }}>{currentOverview.content}</div>
+              <div className="overview-text-content">{currentOverview.content}</div>
               <p className="instruction">
-                <em>(Vui lòng nhấp vào các điểm đánh dấu trên bản đồ để xem chi tiết và hình ảnh)</em>
+                <em>(Nhấp vào các cứ điểm trên sa bàn bản đồ để theo dõi chi tiết và hình ảnh tư liệu)</em>
               </p>
             </div>
           )}
@@ -164,7 +186,7 @@ function App() {
               zoom={2} 
               minZoom={2.5} 
               maxBounds={[[-90, -180], [90, 180]]} 
-              onMarkerClick={setSelectedEvent}
+              onMarkerClick={setSelectedEvent} 
               selectedEvent={selectedEvent}
             />
           )}
