@@ -168,28 +168,29 @@ function App() {
 
         <div className="map-container">
           {activeTab === 'vietnam' ? (
-            <MapComponent 
-              key="map-vn" 
-              events={historicalData.vietnamEvents} 
-              center={[16.0470, 108.2062]} 
-              zoom={6} 
-              minZoom={5} 
-              maxBounds={[[8.0, 102.0], [24.0, 110.0]]} 
-              onMarkerClick={setSelectedEvent} 
-              selectedEvent={selectedEvent}
-            />
-          ) : (
-            <MapComponent 
-              key="map-world"
-              events={historicalData.worldEvents} 
-              center={[25.0, 10.0]} 
-              zoom={2} 
-              minZoom={2.5} 
-              maxBounds={[[-90, -180], [90, 180]]} 
-              onMarkerClick={setSelectedEvent} 
-              selectedEvent={selectedEvent}
-            />
-          )}
+          <MapComponent 
+            key="map-vn" 
+            events={historicalData.vietnamEvents} 
+            center={[16.2, 108.5]}  // Căn tâm biển đảo và đất liền
+            zoom={5.5} 
+            minZoom={4.5} 
+            // Mở rộng tọa độ để bao trọn toàn bộ Quần đảo Hoàng Sa và Trường Sa
+            maxBounds={[[6.0, 101.0], [24.5, 118.5]]} 
+            onMarkerClick={setSelectedEvent} 
+            selectedEvent={selectedEvent}
+          />
+        ) : (
+          <MapComponent 
+            key="map-world"
+            events={historicalData.worldEvents} 
+            center={[25.0, 10.0]} 
+            zoom={2} 
+            minZoom={2} 
+            maxBounds={[[-90, -180], [90, 180]]} 
+            onMarkerClick={setSelectedEvent} 
+            selectedEvent={selectedEvent}
+          />
+        )}
         </div>
       </main>
     </div>

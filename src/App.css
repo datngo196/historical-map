@@ -552,3 +552,133 @@ body {
   background: linear-gradient(135deg, #b71c1c 0%, #7c1414 100%);
   box-shadow: 0 6px 20px rgba(183, 28, 28, 0.8), 0 0 15px var(--gold-light);
 }
+
+.sovereignty-marker {
+  background: none;
+  border: none;
+}
+
+.sovereignty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(139, 21, 21, 0.92) 0%, rgba(86, 13, 13, 0.95) 100%);
+  color: #fff;
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7), 0 0 10px rgba(212, 175, 55, 0.4);
+  pointer-events: none;
+  animation: pulseBadge 3s infinite ease-in-out;
+}
+
+.sovereignty-badge .flag {
+  font-size: 14px;
+}
+
+.sovereignty-badge .badge-text {
+  color: #f7e2a9;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes pulseBadge {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); box-shadow: 0 4px 16px rgba(212, 175, 55, 0.6); }
+  100% { transform: scale(1); }
+}
+
+/* ================= ICON MARKER HOÀNG SA & TRƯỜNG SA ================= */
+.island-pin-marker {
+  background: none;
+  border: none;
+}
+
+.island-pin {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ffebee 0%, #ffcdd2 100%);
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.5);
+  transition: all 0.25s ease;
+}
+
+.island-pin:hover {
+  transform: scale(1.2);
+  border-color: #ffd700;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.8);
+}
+
+.island-pin .flag-icon {
+  font-size: 15px;
+}
+
+/* Tùy chỉnh Popup Hoàng Sa / Trường Sa */
+.island-custom-popup .leaflet-popup-content-wrapper {
+  background: #fffdf7;
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ================= MARKER PIN STYLING (ĐỨNG THẲNG TẮP) ================= */
+.custom-marker {
+  background: none;
+  border: none;
+}
+
+/* Thân ghim hình giọt nước chuẩn, chúc đầu nhọn thẳng đứng xuống đất */
+.marker-pin {
+  width: 34px;
+  height: 34px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--pin-color, #d32f2f);
+  position: absolute;
+  /* Xoay -45deg để góc nhọn hướng thẳng xuống dưới 6 giờ */
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -34px 0 0 -17px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 0 8px rgba(212, 175, 55, 0.4);
+  border: 2px solid #f5d77f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Chấm tròn ở giữa đứng thẳng */
+.marker-pin .pin-dot {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Biểu tượng ngọn lửa 🔥, cờ 🚩, địa cầu 🌍 được xoay ngược lại 45deg để đứng thẳng hoàn toàn */
+.marker-pin .inner-icon {
+  transform: rotate(45deg);
+  font-size: 15px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Khi được chọn: phóng to đều nhưng vẫn giữ góc chúc thẳng đứng */
+.marker-pin.selected-marker {
+  transform: rotate(-45deg) scale(1.22);
+  box-shadow: 0 6px 18px rgba(229, 57, 53, 0.8), 0 0 16px var(--gold-light);
+  border-color: #ffffff;
+  z-index: 1000 !important;
+}
