@@ -9,10 +9,10 @@ const BGM_TRACKS = {
 
 // CẤU HÌNH ÂM LƯỢNG RIÊNG TỪNG BÀI (từ 0.0 đến 1.0)
 const BGM_VOLUMES = {
-  overview_vn: 0.15,
+  overview_vn: 0.3,
   overview_world: 0.5, // Đã tăng âm lượng cho bài Overview World (mặc định cũ là 0.15)
-  event_vn: 0.15,
-  event_world: 0.15,
+  event_vn: 0.3,
+  event_world: 0.3,
 };
 
 export function useBackgroundMusic({ activeTab, selectedEvent, isEnabled = true }) {
